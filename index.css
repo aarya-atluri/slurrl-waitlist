@@ -1,0 +1,29 @@
+body {
+  /* Fallback color if the image fails to load */
+  background-color: #000;
+  
+  /* The background image. Assumes an 'assets' folder exists at the root. */
+  background-image: url('odyssey.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  /* This is necessary to create a stacking context for the pseudo-element */
+  position: relative;
+}
+
+/* This pseudo-element creates a dark overlay on top of the image,
+   ensuring the white text remains readable and preserving the moody aesthetic. */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  
+  /* Places the overlay behind the body's content (e.g., the <main> element) */
+  z-index: -1;
+}
